@@ -1,0 +1,66 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dbh26qd27takw"]
+
+[ext_resource type="Shader" uid="uid://dh0b6eb30omyu" path="res://assets/shaders/spatial/outlines.gdshader" id="1_nodaf"]
+[ext_resource type="Shader" uid="uid://bpbgo7n4u775c" path="res://assets/shaders/spatial/cel_shading_v2.gdshader" id="2_v3qnc"]
+[ext_resource type="Texture2D" uid="uid://by374tmly62pu" path="res://models/Textures/colormap.png" id="3_wwi2y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nodaf"]
+render_priority = 0
+shader = ExtResource("1_nodaf")
+shader_parameter/line_tint = Color(0, 0, 0, 1)
+shader_parameter/crease_tint = Color(0.8329021, 0.83290213, 0.83290213, 1)
+shader_parameter/flip_palettes = false
+shader_parameter/line_overlay = true
+shader_parameter/line_alpha = 0.499999988824
+shader_parameter/crease_overlay = false
+shader_parameter/crease_alpha = 0.0
+shader_parameter/kernel_radius = 1.0
+shader_parameter/zdelta_cutoff = 0.25
+shader_parameter/angle_z_cutoff = 0.5
+shader_parameter/angle_z_scale = 2.0
+shader_parameter/convex_cutoff = 0.1
+shader_parameter/crease_feather = 0.0
+shader_parameter/concave_cutoff = 0.01
+shader_parameter/concave_z_cutoff = 0.5
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_nodaf")
+shader = ExtResource("2_v3qnc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/use_texture_albedo = true
+shader_parameter/albedo_texture = ExtResource("3_wwi2y")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/use_normal_map = false
+shader_parameter/use_emission_map = false
+shader_parameter/emission_color = Color(0, 0, 0, 1)
+shader_parameter/emission_intensity = 1.0
+shader_parameter/use_ambient_light = true
+shader_parameter/ambient_light = Color(0.54244334, 0.58473766, 0.70968944, 1)
+shader_parameter/shininess = 32.0
+shader_parameter/specular_intensity = 1.0
+shader_parameter/specular_color = Color(1, 1, 1, 1)
+shader_parameter/rim_strength = 0.0
+shader_parameter/shadow_intensity = 0.5
+shader_parameter/shadow_color = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/use_half_lambert = false
+shader_parameter/use_ramp = false
+shader_parameter/ramp_offset = Vector2(0, 0)
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/diffuse_threshold = 0.066000003135
+shader_parameter/diffuse_smoothness = 0.5
+shader_parameter/specular_threshold = 0.5
+shader_parameter/specular_smoothness = 0.0
+shader_parameter/rim_threshold = 0.7
+shader_parameter/rim_smoothness = 0.0
+shader_parameter/rim_distance_falloff = 1.0
+shader_parameter/directional_cuts = 3
+shader_parameter/non_directional_cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_outline = false
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.7
+shader_parameter/outline_smoothness = 0.01

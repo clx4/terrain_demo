@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cdvhe47smvaiy"]
+
+[ext_resource type="Script" uid="uid://5gjp0dpfr3gu" path="res://systems/game_manager/loading.gd" id="1_en1jp"]
+[ext_resource type="FontFile" uid="uid://un30k2unxkv8" path="res://assets/fonts/04B_03__.TTF" id="2_72pgf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72pgf"]
+bg_color = Color(0.27022207, 0.27022186, 0.27022186, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqp67"]
+bg_color = Color(0.5647059, 1, 0.4745098, 1)
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+
+[node name="Loading" type="Node2D" unique_id=474861541]
+script = ExtResource("1_en1jp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=235994803]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1085717083]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11764706, 0.078431375, 0.047058824, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=2074515904]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -27.0
+offset_right = 320.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_72pgf")
+theme_override_styles/background = SubResource("StyleBoxFlat_72pgf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cqp67")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=885802194]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -73.0
+offset_right = 96.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_72pgf")
+theme_override_font_sizes/font_size = 24
+text = "Building terrain"

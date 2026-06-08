@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://rv6tjp3dnlvw"]
+
+[ext_resource type="Script" uid="uid://l5wpu3ws4chc" path="res://systems/game_manager/menu.gd" id="1_v46pp"]
+[ext_resource type="FontFile" uid="uid://cj78vfjup8tjw" path="res://assets/fonts/prstartk.ttf" id="2_63g1t"]
+[ext_resource type="Script" uid="uid://5i53ou6o4vv" path="res://systems/game_manager/crazy_color.gd" id="2_65ltr"]
+[ext_resource type="Script" uid="uid://davnr5porqkno" path="res://systems/game_manager/title_animations.gd" id="2_sf4ia"]
+[ext_resource type="Script" uid="uid://bpiacbgbl46nl" path="res://systems/game_manager/bounce.gd" id="4_cfcag"]
+
+[node name="Menu" type="Node2D" unique_id=54248928]
+script = ExtResource("1_v46pp")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=942992262]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1037642356]
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1778860327]
+script = ExtResource("2_sf4ia")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=228044676]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.112242706, 0.39117482, 0.7232517, 1)
+script = ExtResource("2_65ltr")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=20083712]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -11.5
+offset_right = 200.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_63g1t")
+text = "Press any key to continue"
+horizontal_alignment = 1
+script = ExtResource("4_cfcag")
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1470520488]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -215.0
+offset_right = 242.0
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(315, 15)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9843137, 0.8666667, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_63g1t")
+theme_override_font_sizes/font_size = 23
+text = "Leo and Guru present:"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayer" unique_id=1169680278]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -88.0
+offset_right = 242.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(315, 15)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9843137, 0.8666667, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_63g1t")
+theme_override_font_sizes/font_size = 18
+text = "A CSE 493G Adventure"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1665425761]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -170.0
+offset_right = 600.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9843137, 0.8666667, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_63g1t")
+theme_override_font_sizes/font_size = 40
+text = "Big Jay's Gradual Descent"
+horizontal_alignment = 1

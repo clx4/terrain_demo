@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://dnaok7ffiy8wt"]
+
+[ext_resource type="Shader" uid="uid://cd7lrv1mr8ssl" path="res://assets/shaders/canvas_item/upscale_and_offset.gdshader" id="1_ev0e6"]
+[ext_resource type="PackedScene" uid="uid://7t5vhgwo6vt8" path="res://scenes/levels/main.tscn" id="2_xgcak"]
+[ext_resource type="Script" uid="uid://cevmeljflpju2" path="res://systems/main_renderer/scripts/pixel_perfect_scaler.gd" id="3_4a2j5"]
+[ext_resource type="Texture2D" uid="uid://b2xccvrborbb7" path="res://assets/sprites/Keyboard Letters and Symbols.png" id="4_xgcak"]
+[ext_resource type="FontFile" uid="uid://un30k2unxkv8" path="res://assets/fonts/04B_03__.TTF" id="5_4a2j5"]
+[ext_resource type="Texture2D" uid="uid://de5nhxcivlj8d" path="res://assets/sprites/mouse_icon.png" id="5_tx35u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41skh"]
+shader = ExtResource("1_ev0e6")
+shader_parameter/texel_offset = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a2j5"]
+atlas = ExtResource("4_xgcak")
+region = Rect2(64, 32, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgcak"]
+atlas = ExtResource("4_xgcak")
+region = Rect2(0, 64, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx35u"]
+atlas = ExtResource("4_xgcak")
+region = Rect2(96, 64, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38f0t"]
+atlas = ExtResource("4_xgcak")
+region = Rect2(0, 32, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14xsr"]
+atlas = ExtResource("4_xgcak")
+region = Rect2(32, 64, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp07u"]
+atlas = ExtResource("4_xgcak")
+region = Rect2(48, 32, 15, 15)
+
+[node name="MainRenderer" type="Node2D" unique_id=307853639]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1716506454]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_41skh")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1462566488]
+handle_input_locally = false
+size = Vector2i(640, 380)
+render_target_update_mode = 4
+
+[node name="Main" parent="SubViewportContainer/SubViewport" unique_id=1968846408 instance=ExtResource("2_xgcak")]
+
+[node name="PixelPerfectScaler" type="Control" parent="." unique_id=1473503251 node_paths=PackedStringArray("target_viewport")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_4a2j5")
+target_viewport = NodePath("../SubViewportContainer/SubViewport")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1664799863]
+
+[node name="Keyboard Hints" type="Node" parent="UI" unique_id=334142520]
+
+[node name="Control" type="Control" parent="UI" unique_id=732111459]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="E" type="Sprite2D" parent="UI/Control" unique_id=629053523]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(77.25, -0.75)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_4a2j5")
+
+[node name="Q" type="Sprite2D" parent="UI/Control" unique_id=792197284]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(54.25, -0.75)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_xgcak")
+
+[node name="W" type="Sprite2D" parent="UI/Control" unique_id=1408632727]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(76.25, -77.75)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_tx35u")
+
+[node name="A" type="Sprite2D" parent="UI/Control" unique_id=1906249646]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(54.25, -58.75)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_38f0t")
+
+[node name="S" type="Sprite2D" parent="UI/Control" unique_id=627997247]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(76.25, -58.75)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_14xsr")
+
+[node name="D" type="Sprite2D" parent="UI/Control" unique_id=321859859]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(98.25, -58.75)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_lp07u")
+
+[node name="Mouse" type="Sprite2D" parent="UI/Control" unique_id=1804815911]
+modulate = Color(1, 1, 1, 0.78431374)
+texture_filter = 1
+position = Vector2(54.25, -29.75)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_tx35u")
+
+[node name="Label3" type="Label" parent="UI/Control" unique_id=1726601191]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 82.0
+offset_top = -36.179993
+offset_right = 204.0
+offset_bottom = -20.179993
+theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_4a2j5")
+theme_override_font_sizes/font_size = 16
+text = "Zoom In/Out"
+
+[node name="Label" type="Label" parent="UI/Control" unique_id=1867091849]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 123.25
+offset_top = -72.75
+offset_right = 165.25
+offset_bottom = -56.75
+theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_4a2j5")
+theme_override_font_sizes/font_size = 16
+text = "Move"
+
+[node name="Label2" type="Label" parent="UI/Control" unique_id=84521295]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 102.75
+offset_top = -7.25
+offset_right = 224.75
+offset_bottom = 8.75
+theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_4a2j5")
+theme_override_font_sizes/font_size = 16
+text = "Rotate Camera"
