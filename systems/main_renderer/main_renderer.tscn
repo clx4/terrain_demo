@@ -67,56 +67,58 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
+offset_top = -80.474976
 offset_right = 40.0
+offset_bottom = -40.474976
 grow_vertical = 0
+scale = Vector2(2, 2)
 
 [node name="E" type="Sprite2D" parent="UI/Control" unique_id=629053523]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(77.25, -0.75)
+position = Vector2(77.25, -19.012512)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_4a2j5")
 
 [node name="Q" type="Sprite2D" parent="UI/Control" unique_id=792197284]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(54.25, -0.75)
+position = Vector2(54.25, -19.012512)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_xgcak")
 
 [node name="W" type="Sprite2D" parent="UI/Control" unique_id=1408632727]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(76.25, -77.75)
+position = Vector2(76.25, -96.01251)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_tx35u")
 
 [node name="A" type="Sprite2D" parent="UI/Control" unique_id=1906249646]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(54.25, -58.75)
+position = Vector2(54.25, -77.01251)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_38f0t")
 
 [node name="S" type="Sprite2D" parent="UI/Control" unique_id=627997247]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(76.25, -58.75)
+position = Vector2(76.25, -77.01251)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_14xsr")
 
 [node name="D" type="Sprite2D" parent="UI/Control" unique_id=321859859]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(98.25, -58.75)
+position = Vector2(98.25, -77.01251)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_lp07u")
 
 [node name="Mouse" type="Sprite2D" parent="UI/Control" unique_id=1804815911]
 modulate = Color(1, 1, 1, 0.78431374)
 texture_filter = 1
-position = Vector2(54.25, -29.75)
+position = Vector2(54.25, -48.012512)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_tx35u")
 
@@ -124,9 +126,9 @@ texture = ExtResource("5_tx35u")
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 82.0
-offset_top = -36.179993
+offset_top = -54.442505
 offset_right = 204.0
-offset_bottom = -20.179993
+offset_bottom = -38.442505
 theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 2
@@ -134,13 +136,27 @@ theme_override_fonts/font = ExtResource("5_4a2j5")
 theme_override_font_sizes/font_size = 16
 text = "Zoom In/Out"
 
+[node name="Label4" type="Label" parent="UI/Control" unique_id=1831858140]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 45.5
+offset_top = 1.2374878
+offset_right = 167.5
+offset_bottom = 17.237488
+theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_4a2j5")
+theme_override_font_sizes/font_size = 16
+text = "Space - Jump"
+
 [node name="Label" type="Label" parent="UI/Control" unique_id=1867091849]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 123.25
-offset_top = -72.75
+offset_top = -91.01251
 offset_right = 165.25
-offset_bottom = -56.75
+offset_bottom = -75.01251
 theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 2
@@ -152,9 +168,9 @@ text = "Move"
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
 offset_left = 102.75
-offset_top = -7.25
+offset_top = -25.512512
 offset_right = 224.75
-offset_bottom = 8.75
+offset_bottom = -9.512512
 theme_override_colors/font_shadow_color = Color(0.23633423, 0.23633423, 0.2363342, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 2

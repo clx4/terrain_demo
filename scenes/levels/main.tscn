@@ -112,7 +112,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33, 
 view = NodePath("../CameraRig")
 
 [node name="BigJay" type="RigidBody3D" parent="." unique_id=202502817]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 38, 7, -23)
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 25.26368, 5.6763687, 50.16061)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BigJay" unique_id=497636224]
 transform = Transform3D(-1.1920929e-07, 0.64704764, 2.4148145, 0, 2.4148145, -0.64704764, -2.5, 0, -1.1920929e-07, 0, 0, 0)

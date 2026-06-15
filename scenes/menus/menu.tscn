@@ -1,13 +1,86 @@
 [gd_scene format=3 uid="uid://rv6tjp3dnlvw"]
 
 [ext_resource type="Script" uid="uid://l5wpu3ws4chc" path="res://systems/game_manager/menu.gd" id="1_v46pp"]
+[ext_resource type="Shader" uid="uid://dh0b6eb30omyu" path="res://assets/shaders/spatial/outlines.gdshader" id="2_7yii3"]
 [ext_resource type="FontFile" uid="uid://cj78vfjup8tjw" path="res://assets/fonts/prstartk.ttf" id="2_63g1t"]
 [ext_resource type="Script" uid="uid://5i53ou6o4vv" path="res://systems/game_manager/crazy_color.gd" id="2_65ltr"]
 [ext_resource type="Script" uid="uid://davnr5porqkno" path="res://systems/game_manager/title_animations.gd" id="2_sf4ia"]
+[ext_resource type="Shader" uid="uid://bpbgo7n4u775c" path="res://assets/shaders/spatial/cel_shading_v2.gdshader" id="3_rdq0w"]
 [ext_resource type="Script" uid="uid://bpiacbgbl46nl" path="res://systems/game_manager/bounce.gd" id="4_cfcag"]
+[ext_resource type="Texture2D" uid="uid://plo5mk6oj6x8" path="res://assets/sprites/jayjay.png" id="4_qh50l"]
+[ext_resource type="Script" uid="uid://dtluqlxj7nasg" path="res://scenes/menus/go.gd" id="5_rdq0w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yii3"]
+render_priority = 0
+shader = ExtResource("2_7yii3")
+shader_parameter/line_tint = Color(0, 0, 0, 1)
+shader_parameter/crease_tint = Color(0.8329021, 0.83290213, 0.83290213, 1)
+shader_parameter/flip_palettes = false
+shader_parameter/line_overlay = true
+shader_parameter/line_alpha = 0.499999988824
+shader_parameter/crease_overlay = false
+shader_parameter/crease_alpha = 0.0
+shader_parameter/kernel_radius = 1.0
+shader_parameter/zdelta_cutoff = 0.25
+shader_parameter/angle_z_cutoff = 0.5
+shader_parameter/angle_z_scale = 2.0
+shader_parameter/convex_cutoff = 0.1
+shader_parameter/crease_feather = 0.0
+shader_parameter/concave_cutoff = 0.01
+shader_parameter/concave_z_cutoff = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ra27y"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_7yii3")
+shader = ExtResource("3_rdq0w")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/use_texture_albedo = true
+shader_parameter/albedo_texture = ExtResource("4_qh50l")
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.5
+shader_parameter/use_normal_map = false
+shader_parameter/use_emission_map = false
+shader_parameter/emission_color = Color(0, 0, 0, 1)
+shader_parameter/emission_intensity = 1.0
+shader_parameter/use_ambient_light = true
+shader_parameter/ambient_light = Color(0.78352344, 0.7835234, 0.7835234, 1)
+shader_parameter/shininess = 32.0
+shader_parameter/specular_intensity = 0.0
+shader_parameter/specular_color = Color(1, 1, 1, 1)
+shader_parameter/rim_strength = 0.0
+shader_parameter/shadow_intensity = 0.5
+shader_parameter/shadow_color = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/use_half_lambert = false
+shader_parameter/use_ramp = false
+shader_parameter/ramp_offset = Vector2(0, 0)
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/diffuse_threshold = 0.3250000154375
+shader_parameter/diffuse_smoothness = 0.5
+shader_parameter/specular_threshold = 0.862000040945
+shader_parameter/specular_smoothness = 0.0
+shader_parameter/rim_threshold = 0.7
+shader_parameter/rim_smoothness = 0.0
+shader_parameter/rim_distance_falloff = 1.0
+shader_parameter/directional_cuts = 3
+shader_parameter/non_directional_cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_outline = false
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.7
+shader_parameter/outline_smoothness = 0.01
+
+[sub_resource type="SphereMesh" id="SphereMesh_3lt0k"]
 
 [node name="Menu" type="Node2D" unique_id=54248928]
 script = ExtResource("1_v46pp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1156520018]
+transform = Transform3D(-1.1920929e-07, 0.64704764, 2.4148145, 0, 2.4148145, -0.64704764, -2.5, 0, -1.1920929e-07, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ra27y")
+mesh = SubResource("SphereMesh_3lt0k")
+script = ExtResource("5_rdq0w")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=942992262]
 offset_right = 40.0
@@ -28,19 +101,63 @@ grow_vertical = 2
 color = Color(0.112242706, 0.39117482, 0.7232517, 1)
 script = ExtResource("2_65ltr")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1251871931]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = 142.0
+offset_right = 11.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=174262828]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1506031241]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.6097107, 0, 0)
+fov = 46.180775
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1665425761]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -172.5
+offset_right = 650.0
+offset_bottom = -119.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9843137, 0.8666667, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_63g1t")
+theme_override_font_sizes/font_size = 52
+text = "Big Jay's Gradual Descent"
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=20083712]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -11.5
-offset_right = 200.0
-offset_bottom = 11.5
+offset_left = -400.0
+offset_top = -16.0
+offset_right = 400.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_63g1t")
+theme_override_font_sizes/font_size = 32
 text = "Press any key to continue"
 horizontal_alignment = 1
 script = ExtResource("4_cfcag")
@@ -64,7 +181,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("2_63g1t")
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 39
 text = "Leo and Guru present:"
 horizontal_alignment = 1
 
@@ -87,29 +204,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("2_63g1t")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 34
 text = "A CSE 493G Adventure"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1665425761]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -600.0
-offset_top = -170.0
-offset_right = 600.0
-offset_bottom = -122.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.9843137, 0.8666667, 0.29803923, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.60784316)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("2_63g1t")
-theme_override_font_sizes/font_size = 40
-text = "Big Jay's Gradual Descent"
 horizontal_alignment = 1
